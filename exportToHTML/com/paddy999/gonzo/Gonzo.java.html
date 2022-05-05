@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>Gonzo.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+.s3 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Gonzo.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.paddy999.gonzo</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">com.paddy999.gonzo.setup.Registration</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">com.paddy999.gonzo.setup.ModSetup</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">com.paddy999.gonzo.setup.ClientSetup</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">com.mojang.logging.LogUtils</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">net.minecraftforge.eventbus.api.IEventBus</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">net.minecraftforge.fml.DistExecutor</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">net.minecraftforge.fml.common.Mod</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">org.slf4j.Logger</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">net.minecraftforge.api.distmarker.Dist</span><span class="s0">;</span>
+
+
+
+<span class="s2">// The value here should match an entry in the META-INF/mods.toml file</span>
+<span class="s1">@Mod(Gonzo.MODID)</span>
+<span class="s0">public class </span><span class="s1">Gonzo</span>
+<span class="s1">{</span>
+    <span class="s2">// Directly reference a slf4j logger</span>
+    <span class="s0">private static final </span><span class="s1">Logger LOGGER = LogUtils.getLogger()</span><span class="s0">;</span>
+    <span class="s0">public static final </span><span class="s1">String MODID = </span><span class="s3">&quot;gonzo&quot;</span><span class="s0">;</span>
+    <span class="s0">public </span><span class="s1">Gonzo()</span>
+    <span class="s1">{</span>
+        <span class="s1">ModSetup.setup()</span><span class="s0">;</span>
+        <span class="s1">Registration.init()</span><span class="s0">;</span>
+
+        <span class="s1">IEventBus modbus = FMLJavaModLoadingContext.get().getModEventBus()</span><span class="s0">;</span>
+        <span class="s1">modbus.addListener(ModSetup::init)</span><span class="s0">;</span>
+        <span class="s1">DistExecutor.unsafeRunWhenOn(Dist.CLIENT</span><span class="s0">, </span><span class="s1">() -&gt; () -&gt; modbus.addListener((ClientSetup::init)))</span><span class="s0">;</span>
+
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>

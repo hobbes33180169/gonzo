@@ -1,7 +1,7 @@
 {
-  "type": "gonzochthonic:gonzo",
+  "type": "gonzo:gonzo",
   "generator": {
-    "type": "gonzochthonic:gonzo_chunkgen",
+    "type": "gonzo:gonzo_chunkgen",
     "settings": {
       "base": 65,
       "verticalvariance": 10,

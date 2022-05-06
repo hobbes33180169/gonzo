@@ -13,7 +13,7 @@ public class Dimensions {
 
     public static void register() {
         Registry.register(Registry.CHUNK_GENERATOR, new ResourceLocation(Gonzo.MODID, "gonzo_chunkgen"),
-                GonzoChunkGenerator.CODEC);
+               GonzoChunkGenerator.CODEC);
 
         Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(Gonzo.MODID, "biomes"),
                 GonzoChthonicProvider.CODEC);

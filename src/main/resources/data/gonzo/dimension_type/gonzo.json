@@ -1,0 +1,19 @@
+{
+  "name": "gonzo",
+  "logical_height": 384,
+  "infiniburn": "#minecraft:infiniburn_overworld",
+  "effects": "minecraft:overworld",
+  "ambient_light": 0.0,
+  "respawn_anchor_works": false,
+  "has_raids": true,
+  "min_y": -64,
+  "height": 384,
+  "natural": false,
+  "coordinate_scale": 8.0,
+  "piglin_safe": false,
+  "bed_works": true,
+  "fixed_time": 18000,
+  "has_skylight": false,
+  "has_ceiling": true,
+  "ultrawarm": false
+}

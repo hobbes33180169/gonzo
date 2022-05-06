@@ -37,6 +37,7 @@ public class GonzoChunkGenerator extends ChunkGenerator {
                     Codec.FLOAT.fieldOf("horizontalvariance").forGetter(Settings::horizontalVariance)
             ).apply(instance, Settings::new));
 
+
     public static final Codec<GonzoChunkGenerator> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
                     RegistryOps.retrieveRegistry(Registry.STRUCTURE_SET_REGISTRY).forGetter(GonzoChunkGenerator::getStructureSetRegistry),
@@ -133,7 +134,7 @@ public class GonzoChunkGenerator extends ChunkGenerator {
     @Override
     public NoiseColumn getBaseColumn(int x, int z, LevelHeightAccessor levelHeightAccessor) {
         int y = getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, levelHeightAccessor);
-        BlockState sand = Blocks.STONE.defaultBlockState();
+        BlockState sand = Blocks.SAND.defaultBlockState();
         BlockState[] states = new BlockState[y];
         states[0] = Blocks.BEDROCK.defaultBlockState();
         for (int i = 1 ; i < y ; i++) {
